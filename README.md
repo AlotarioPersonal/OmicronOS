@@ -13,10 +13,17 @@ And, no. No, not really.
 It's really evolved into kind of it's own thing.
 
 Upon 1.0.0 release, omicronOS is planned to have the following features:
+
 -multiline system command execution
+
 -omiZone will be a fully interactive environment with actual function
+
 -live date and time readouts for your local timezone
+
 -fully reworked four-function calculator
+
 -audio-playing system
+
+
 
 Remember, omicronOS is meant to be a side-by-side PARTNER with your operating system, rather than a full replacement. It should be working in tandem with you and your OS, not doing all the work for you.
