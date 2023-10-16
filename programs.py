@@ -3,6 +3,7 @@ import time
 import os
 import turtle
 import keyboard
+import subprocess
 
 # -----FUNCTIONS
 
@@ -22,7 +23,10 @@ def write():
     filenamed = "files/" + namethefile + ".txt"
     clear()
     outfile = open(filenamed, 'a')
-    outfile.write(input("Enter your text here: "))
+    lines = int(input("Enter the number of lines needed: "))
+    for i in range(lines):
+        outfile.write(input("Enter your text here: "))
+        outfile.write("\n")
     outfile.close()
     print('text successfully written to' + str(filenamed))
 
@@ -74,6 +78,10 @@ def calculatoring(oper, x, y):
         time.sleep(1)
         calc()
 
+def systemaccess():
+    cmd = input("(" + os.name + ")cmd:")
+    os.system(cmd)
+    filler = input('Enter To Continue. . .')
 
 def calc():
     # the worst calculator ever
@@ -95,16 +103,13 @@ def calc():
 def checkid():
     clear()
     print("""
-          
- _______  __   __  ___   _______  ______    _______  __    _ 
-|       ||  |_|  ||   | |       ||    _ |  |       ||  |  | |
-|   _   ||       ||   | |       ||   | ||  |   _   ||   |_| |
-|  | |  ||       ||   | |       ||   |_| \ |  | |  ||       |
-|  |_|  ||       ||   | |      _||    __  ||  |_|  ||  _    |
-|       || ||_|| ||   | |     |_ |   |  | ||       || | |   |
-|_______||_|   |_||___| |_______||___|  |_||_______||_|  |__|
-          
-
+ ██████╗ ███╗   ███╗██╗ ██████╗██████╗  ██████╗ ███╗   ██╗ ██████╗ ███████╗
+██╔═══██╗████╗ ████║██║██╔════╝██╔══██╗██╔═══██╗████╗  ██║██╔═══██╗██╔════╝
+██║   ██║██╔████╔██║██║██║     ██████╔╝██║   ██║██╔██╗ ██║██║   ██║███████╗
+██║   ██║██║╚██╔╝██║██║██║     ██╔══██╗██║   ██║██║╚██╗██║██║   ██║╚════██║
+╚██████╔╝██║ ╚═╝ ██║██║╚██████╗██║  ██║╚██████╔╝██║ ╚████║╚██████╔╝███████║
+ ╚═════╝ ╚═╝     ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
+                                                                           
           """)
     # numeric id check the program runs on startup
     id = input("enter your six-digit numeric id: ")
@@ -125,30 +130,41 @@ def runprogram():
     # where the main filesystem browser goes. holds the executions for all the programs
     clear()
     print("""
-          
- _______  __   __  ___   _______  ______    _______  __    _ 
-|       ||  |_|  ||   | |       ||    _ |  |       ||  |  | |
-|   _   ||       ||   | |       ||   | ||  |   _   ||   |_| |
-|  | |  ||       ||   | |       ||   |_||_ |  | |  ||       |
-|  |_|  ||       ||   | |      _||    __  ||  |_|  ||  _    |
-|       || ||_|| ||   | |     |_ |   |  | ||       || | |   |
-|_______||_|   |_||___| |_______||___|  |_||_______||_|  |__|
-          
-
+ ██████╗ ███╗   ███╗██╗ ██████╗██████╗  ██████╗ ███╗   ██╗ ██████╗ ███████╗
+██╔═══██╗████╗ ████║██║██╔════╝██╔══██╗██╔═══██╗████╗  ██║██╔═══██╗██╔════╝
+██║   ██║██╔████╔██║██║██║     ██████╔╝██║   ██║██╔██╗ ██║██║   ██║███████╗
+██║   ██║██║╚██╔╝██║██║██║     ██╔══██╗██║   ██║██║╚██╗██║██║   ██║╚════██║
+╚██████╔╝██║ ╚═╝ ██║██║╚██████╗██║  ██║╚██████╔╝██║ ╚████║╚██████╔╝███████║
+ ╚═════╝ ╚═╝     ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
+                                                                           
           """)
-    print("""      
-calc - Runs basic calculator with addition, subtraction, multiplication and division.
-tencheck - Runs basic check for if a number is over ten, good for checking language version validity
-write - Write to a new or existing text file.
-read - Read from an existing text file.
-turtle - a small Python turtle demo.
-logout - Log out of the current user profile
-shutdown - Shut down the machine.
-       """)
+    print("""omicronOSv0.2.1
+managed by L.Kaminski, 2023
+ 
+Type 'help' for a list of commands.""")
     command = input("OMI:>  ")
     # MAKE ABSOLUTE SURE THAT THE = are DOUBLED, like this: ==. otherwise it won't work
     if command == "calc":
         calc()
+        clear()
+        runprogram()
+    elif command == "help":
+        print("""      
+calc - Runs basic calculator with addition, subtraction, multiplication and division.
+tencheck - Runs basic check for if a number is over ten, good for checking language version validity
+write - Write to a new or existing text file.
+read - Read from an existing text file.
+omizone - Activate the omiZone, a 3D interactive space within omicronOS
+sysacc - run a single system command on your operating system's default CMD.
+logout - Log out of the current user profile
+exit - Shut down the machine.
+       """)
+        moarfiller = input("Enter to Continue. . .")
+        clear()
+        runprogram()
+    elif command == "sysacc":
+        clear()
+        systemaccess()
         clear()
         runprogram()
     elif command == "tencheck":
@@ -163,12 +179,15 @@ shutdown - Shut down the machine.
     elif command == "read":
         read()
         runprogram()
-    elif command == "turtle":
-        turtlePower()
+    elif command == "omizone":
+        subprocess.run(["python", r"C:\Users\alota\OneDrive\Documents\OmicronOS-main\omizone.py"])
         clear()
         runprogram()
-    elif command == "shutdown":
-        print("Closing Dobel Filesystem...")
+    elif command == "exit":
+        clear()
+        print("Closing OmicronOS Runtime. . .")
+        time.sleep(0.2)
+        print("Checking Save Validity. . .")
         time.sleep(1)
         print("Shutting Down...")
         time.sleep(0.5)
@@ -178,16 +197,13 @@ shutdown - Shut down the machine.
         time.sleep(1)
         clear()
         print("""
-          
- _______  __   __  ___   _______  ______    _______  __    _ 
-|       ||  |_|  ||   | |       ||    _ |  |       ||  |  | |
-|   _   ||       ||   | |       ||   | ||  |   _   ||   |_| |
-|  | |  ||       ||   | |       ||   |_||_ |  | |  ||       |
-|  |_|  ||       ||   | |      _||    __  ||  |_|  ||  _    |
-|       || ||_|| ||   | |     |_ |   |  | ||       || | |   |
-|_______||_|   |_||___| |_______||___|  |_||_______||_|  |__|
-          
-
+ ██████╗ ███╗   ███╗██╗ ██████╗██████╗  ██████╗ ███╗   ██╗ ██████╗ ███████╗
+██╔═══██╗████╗ ████║██║██╔════╝██╔══██╗██╔═══██╗████╗  ██║██╔═══██╗██╔════╝
+██║   ██║██╔████╔██║██║██║     ██████╔╝██║   ██║██╔██╗ ██║██║   ██║███████╗
+██║   ██║██║╚██╔╝██║██║██║     ██╔══██╗██║   ██║██║╚██╗██║██║   ██║╚════██║
+╚██████╔╝██║ ╚═╝ ██║██║╚██████╗██║  ██║╚██████╔╝██║ ╚████║╚██████╔╝███████║
+ ╚═════╝ ╚═╝     ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
+                                                                           
           """)
         checkid()
     else:
@@ -196,55 +212,42 @@ shutdown - Shut down the machine.
         runprogram()
 
 
+
+
+    
+
+
+
 def loadasset():
     # flashy loading screen
     clear()
     print("""
-          
- _______  __   __  ___   _______  ______    _______  __    _ 
-|       ||  |_|  ||   | |       ||    _ |  |       ||  |  | |
-|   _   ||       ||   | |       ||   | ||  |   _   ||   |_| |
-|  | |  ||       ||   | |       ||   |_||_ |  | |  ||       |
-|  |_|  ||       ||   | |      _||    __  ||  |_|  ||  _    |
-|       || ||_|| ||   | |     |_ |   |  | ||       || | |   |
-|_______||_|   |_||___| |_______||___|  |_||_______||_|  |__|
-          
-
+ ██████╗ ███╗   ███╗██╗ ██████╗██████╗  ██████╗ ███╗   ██╗ ██████╗ ███████╗
+██╔═══██╗████╗ ████║██║██╔════╝██╔══██╗██╔═══██╗████╗  ██║██╔═══██╗██╔════╝
+██║   ██║██╔████╔██║██║██║     ██████╔╝██║   ██║██╔██╗ ██║██║   ██║███████╗
+██║   ██║██║╚██╔╝██║██║██║     ██╔══██╗██║   ██║██║╚██╗██║██║   ██║╚════██║
+╚██████╔╝██║ ╚═╝ ██║██║╚██████╗██║  ██║╚██████╔╝██║ ╚████║╚██████╔╝███████║
+ ╚═════╝ ╚═╝     ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
+                                                                           
           """)
     print("Welcome to OMICRON")
-    time.sleep(2)
     print("Loading Assets...")
     time.sleep(1)
     var = 0
     while var < 101:
-        print("""
-          
- _______  __   __  ___   _______  ______    _______  __    _ 
-|       ||  |_|  ||   | |       ||    _ |  |       ||  |  | |
-|   _   ||       ||   | |       ||   | ||  |   _   ||   |_| |
-|  | |  ||       ||   | |       ||   |_||_ |  | |  ||       |
-|  |_|  ||       ||   | |      _||    __  ||  |_|  ||  _    |
-|       || ||_|| ||   | |     |_ |   |  | ||       || | |   |
-|_______||_|   |_||___| |_______||___|  |_||_______||_|  |__|
-          
-
-          """)
-        print(str(var) + "% Loaded")
-        time.sleep(0.05)
+        print(str(var) + "% Loaded \r"),
+        time.sleep(0.01)
         var += 1
         clear()
     # i have to give some sort of visual fun to my eyeballs, python is already slow as balls let me have some fun
     print("""
-          
- _______  __   __  ___   _______  ______    _______  __    _ 
-|       ||  |_|  ||   | |       ||    _ |  |       ||  |  | |
-|   _   ||       ||   | |       ||   | ||  |   _   ||   |_| |
-|  | |  ||       ||   | |       ||   |_||_ |  | |  ||       |
-|  |_|  ||       ||   | |      _||    __  ||  |_|  ||  _    |
-|       || ||_|| ||   | |     |_ |   |  | ||       || | |   |
-|_______||_|   |_||___| |_______||___|  |_||_______||_|  |__|
-          
-
+ ██████╗ ███╗   ███╗██╗ ██████╗██████╗  ██████╗ ███╗   ██╗ ██████╗ ███████╗
+██╔═══██╗████╗ ████║██║██╔════╝██╔══██╗██╔═══██╗████╗  ██║██╔═══██╗██╔════╝
+██║   ██║██╔████╔██║██║██║     ██████╔╝██║   ██║██╔██╗ ██║██║   ██║███████╗
+██║   ██║██║╚██╔╝██║██║██║     ██╔══██╗██║   ██║██║╚██╗██║██║   ██║╚════██║
+╚██████╔╝██║ ╚═╝ ██║██║╚██████╗██║  ██║╚██████╔╝██║ ╚████║╚██████╔╝███████║
+ ╚═════╝ ╚═╝     ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
+                                                                           
           """)
     print("Assets Loaded.")
     # i want a fullscreen function here someone figure that out please
@@ -270,23 +273,6 @@ def tencheck():
         print("exactly 10")
         time.sleep(1.5)
     runprogram()
-
-
-def turtlePower():
-    clear()
-    win = turtle.Screen()
-    man = turtle.Turtle()
-    man.penup()
-    while True:
-        if keyboard.is_pressed("w"):
-            man.forward(2)
-        if keyboard.is_pressed("a"):
-            man.left(2)
-        if keyboard.is_pressed("s"):
-            man.backward(2)
-        if keyboard.is_pressed("d"):
-            man.right(2)
-        if keyboard.is_pressed("e"):
-            win.bye()
-            break
 # don't run any other functions here
+
+#VARIABLES

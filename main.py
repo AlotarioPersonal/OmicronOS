@@ -2,7 +2,6 @@
 import os
 import time
 import programs
-
 #-----FUNCTIONS
 def clearscreen():
     os.system('cls')
