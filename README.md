@@ -27,3 +27,5 @@ Upon 1.0.0 release, omicronOS is planned to have the following features:
 
 
 Remember, omicronOS is meant to be a side-by-side PARTNER with your operating system, rather than a full replacement. It should be working in tandem with you and your OS, not doing all the work for you.
+
+(Note: As I've recently discovered, panda3D and ursina still have not updated their packages to python 3.12. If you want to use omiZone, you're going to have to downgrade to 3.11.5)
