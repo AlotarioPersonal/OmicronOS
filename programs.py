@@ -1,8 +1,6 @@
 # -----IMPORTS
 import time
 import os
-import turtle
-import keyboard
 import subprocess
 
 # -----FUNCTIONS
@@ -180,7 +178,7 @@ exit - Shut down the machine.
         read()
         runprogram()
     elif command == "omizone":
-        subprocess.run(["python", r"C:\Users\alota\OneDrive\Documents\OmicronOS-main\omizone.py"])
+        subprocess.run(["python", r"omizone.py"])
         clear()
         runprogram()
     elif command == "exit":
