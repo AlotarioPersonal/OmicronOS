@@ -1,4 +1,7 @@
 # OmicronOS
+
+THIS PROJECT IS DEPRECATED. I AM WORKING ON A NEW INTERACTION SYSTEM THAT WILL RELPLACE OMICRONOS ENTIRELY.
+
 A mock old computer operating system I made.
 
 I came up with this idea after my experience with some older computers, like the Apple II and some IBM PCs.I wanted to create something with a similar style, but I wanted to add a little bit more... functionality to the project.
